@@ -1,5 +1,10 @@
 #!/usr/bin/env Rscript
 
+#' Karyotype like figure from chromosome-level assembled genome
+#' Author: Antoine Lu
+#' Year: 2018
+
+# LIBRARY
 source("https://bioconductor.org/biocLite.R")
 #biocLite("VariantAnnotation")
 suppressMessages(library("VariantAnnotation"))
@@ -8,6 +13,7 @@ suppressMessages(library("optparse"))
 suppressMessages(library("seqinr"))
 print("Library importation done")
 
+# OPTIONS PARSE
 option_list = list(
 	make_option(c("-f", "--fasta"), type="character", default=NULL, 
               help="dataset file name", metavar="character"),
@@ -26,13 +32,18 @@ if (is.null(opt$f)){
   stop("At least one argument must be supplied (input FASTA file)", call.=FALSE)
 }
 
-# for the legend (lgde)
+#' for the legend: create vectors that will contain arguments to create the legend box
+#' example: if TE and GC files are provided, lgde will contain "Transposable Elements"
+#' and "GC %"
+#' sign1 and sign2 will contain metadata will be used to determine the shape and size
+#' of the data to plot, color will contain a give color name associated to the data type
+
 lgde = c()
 sign1 = c()
 sign2 = c()
 color =  c()
 
-
+# KARYOPLOT FUNCTION
 karyoplot <- function(fasta, gc_count, te, out){
 
     # Plotting parameters
