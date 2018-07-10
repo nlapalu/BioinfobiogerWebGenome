@@ -27,6 +27,9 @@ You will need the following packages to run our tool:
 ```r
 Rscript --vanilla karyoplot.R -f [seq_file.fasta] -g [gc_file.out] -t [te_file.gff] (-o [out_figure_name])
 ```
+**Output:**
+
+One Rplot.pdf file corresponding to the constructed karyoplot
 
 **Limits/ TODO**
 
