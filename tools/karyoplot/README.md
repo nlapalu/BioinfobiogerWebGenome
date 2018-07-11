@@ -35,4 +35,4 @@ One Rplot.pdf file corresponding to the constructed karyoplot
 
 - add a selection: which sequences not to select from FASTA file
 - automatic management of the type and name of the returned image file + quality of the figure (the png / jpeg / tiff / pdf functions return a blurry figure)
-
+- add custom data input reader(s): for ribosomal repeats and/or centromere for example
