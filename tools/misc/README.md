@@ -47,4 +47,49 @@ Return for each contig the region (HEAD: 5 prime, TAIL: 3 prime) containing or n
 |------------|------------|
 |input\_file|FASTA file of the assembled genome|
 
-### windowCov.R
+### slidingGenCov.py and windowCov.R
+
+_Description:_
+#### slidingGenCov.py:
+
+##### Requirements:
+
++ [matplotlib.pyplot package](https://matplotlib.org/users/installing.html)
+
+##### Description:
+
+This script takes the returned coverage file from _bedtools gencov_. And returns either:
+
++ a BED file of the coverage for each window parcouring each contig of a given genome
++ a R-formated text file of the coverage for each window parcouring each contig
++ can return one coverage scatter plot for each contig
+
+|Option name | Description|
+|------------|------------|
+|covfile|Coverage file from _bedtools gencov_|
+|length|Length of the sliding window|
+|overlap|Number of nucleotides to be overlapped|
+|threshold|Threshold which determines whether the current regeion/window is under- or over- covered|
+
+Optional arguments:
+|Option name | Description|
+|------------|------------|
+|-b or --exportBed|Export into a BED-like format|
+|-g or --graph|Plot a scatter plot for each contig|
+|-r or --exportR|Export into a **R-like** format|
+
+#### windowCov.R
+
+If **-r** option was selected with the previous script, you can use this script (windowCov.R) to generate a coverage plot for each assembled contig.
+
+|Option name | Description|
+|------------|------------|
+|-f or --file|R-like file returned from slidingGenCov.py|
+|-o or --out|Output BED like file name|
+|-t or --threshold|Same threshold value as for _slidingGenCov.py_|
+|-w or --windsize|Same window size/length as for _slidingGenCov.py_|
+|-g or --graph|if TRUE, output a coverage plot for each contig|
+|-m or --merge|if TRUE, merge sliding windows with same state (Min, Default, Max)|
+
+
+
