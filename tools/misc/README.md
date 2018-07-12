@@ -25,7 +25,19 @@ Performs simple stats on a .gff annotation file returned by RepeatMasker (for ex
 |gff|Annotation file of the TEs and SSRs|
 |chrLengthFile|File containing the size of each chromosome: chr '\t' length|
 
-### searchTelo.py
+### stat\_coords\_lc.py
 
 _Description:_
+Performs stats on a coord file returned my NUCmer's show-coords output file with -l (length of QUERy and REFerence) and -c (percent coverage information) parameters.
++ Number of matches between REF and QUER
++ % identity between REF and QUER
++ % coverage that the QUER match represents on the REF
++ Longest match
+
+|Option name | Description|
+|------------|------------|
+|filename| .coords file return after using show-coords -l -c ... |
+
+### searchTelo.py
+
 
