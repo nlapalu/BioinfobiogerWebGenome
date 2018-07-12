@@ -39,5 +39,12 @@ Performs stats on a coord file returned my NUCmer's show-coords output file with
 |filename| .coords file return after using show-coords -l -c ... |
 
 ### searchTelo.py
+_Description:_
+Look for telomeric motifs at both termini of each assembled contig.
+Return for each contig the region (HEAD: 5 prime, TAIL: 3 prime) containing or not a telomeric motif.
 
+|Option name | Description|
+|------------|------------|
+|input\_file|FASTA file of the assembled genome|
 
+### windowCov.R
