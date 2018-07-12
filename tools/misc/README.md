@@ -72,6 +72,7 @@ This script takes the returned coverage file from _bedtools gencov_. And returns
 |threshold|Threshold which determines whether the current regeion/window is under- or over- covered|
 
 Optional arguments:
+
 |Option name | Description|
 |------------|------------|
 |-b or --exportBed|Export into a BED-like format|
