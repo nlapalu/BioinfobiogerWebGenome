@@ -1,5 +1,5 @@
 # README
-
+	authors: Antoine Lu
 ### slidingGC.py
 
 _Description:_
