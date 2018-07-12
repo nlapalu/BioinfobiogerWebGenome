@@ -12,6 +12,10 @@ A window of a given size (**length**) slides through a FASTA sequence. The next 
 |overlap|Number of nucleotides to be overlaped by the next window|
 |exportR|HAS TO be **TRUE** if you desire to return a BED file, otherwise nothing will be printed out|
 
+```python
+python slidingGC.py Cdestructivum.fasta 5000 500 True
+```
+
 ### TE\_stats.py
 
 _Description:_
@@ -24,6 +28,12 @@ Performs simple stats on a .gff annotation file returned by RepeatMasker (for ex
 |------------|------------|
 |gff|Annotation file of the TEs and SSRs|
 |chrLengthFile|File containing the size of each chromosome: chr '\t' length|
+
+```python
+# Extract the Chr lengths in external file: chr \t size
+grep "^##sequence-region" arrow.gff | sed s'/ /\t/g' | cut -f2,4 | grep chr > chrLength.txt
+python TE_stats.py ../run/Cdestructivum.fasta.out.gff chrLength.txt
+```
 
 ### stat\_coords\_lc.py
 
@@ -38,6 +48,12 @@ Performs stats on a coord file returned my NUCmer's show-coords output file with
 |------------|------------|
 |filename| .coords file return after using show-coords -l -c ... |
 
+
+```python
+show-coords -l -c pacbio_assembly.delta > pacbio_assembly.coords
+python stat_coords_lc.py pacbio_assembly.coords
+```
+
 ### searchTelo.py
 _Description:_
 Look for telomeric motifs at both termini of each assembled contig.
@@ -46,6 +62,10 @@ Return for each contig the region (HEAD: 5 prime, TAIL: 3 prime) containing or n
 |Option name | Description|
 |------------|------------|
 |input\_file|FASTA file of the assembled genome|
+
+```python
+python searchTelo.py file.contigset.fasta
+```
 
 ### slidingGenCov.py and windowCov.R
 
