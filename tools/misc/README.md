@@ -16,6 +16,8 @@ A window of a given size (**length**) slides through a FASTA sequence. The next 
 python slidingGC.py Cdestructivum.fasta 5000 500 True
 ```
 
+The previous output is used in the construction of the Karyoplot for the assembled genome: see [karyoplot section](https://github.com/nlapalu/BioinfobiogerWebGenome/tree/develop/tools/karyoplot)
+
 ### TE\_stats.py
 
 _Description:_
