@@ -93,7 +93,7 @@ if __name__ == '__main__':
     version = 0.1
     description = 'Get GC content (%) from each chromosome using a sliding window of a given size from a fasta file'
     parser = argparse.ArgumentParser(prog=program)
-    parser = argparse.ArgumentParser(description=description)
+    parser = argparse.ArgumentParser(description=description, epilog="Author: Antoine Lu, 2018")
     parser.add_argument('--version', action='version', version='{} {}'.format(program, version))
     parser.add_argument("fastaFile", help="input fasta file", type=str)
     parser.add_argument("length", help="length of window", type=int)
