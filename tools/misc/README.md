@@ -79,6 +79,10 @@ Optional arguments:
 |-g or --graph|Plot a scatter plot for each contig|
 |-r or --exportR|Export into a **R-like** format|
 
+```python
+python slidingGenCov.py bedtools.cov 100 20 0.4 (-b example-BED-like.bed OR -r example-R-like.txt) (-g)
+```
+
 #### windowCov.R
 
 If **-r** option was selected with the previous script, you can use this script (windowCov.R) to generate a coverage plot for each assembled contig.
@@ -92,5 +96,7 @@ If **-r** option was selected with the previous script, you can use this script 
 |-g or --graph|if TRUE, output a coverage plot for each contig|
 |-m or --merge|if TRUE, merge sliding windows with same state (Min, Default, Max)|
 
-
+```r
+Rscript (--vanilla) windowCov.R -f example-R-like.txt -o example_R_cov.bed -t 0.4 -w 100 --graph=TRUE --merge=TRUE 
+```
 
