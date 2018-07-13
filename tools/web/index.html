@@ -3,6 +3,8 @@
     Read Only by HTML5 UP
     html5up.net | @ajlkn
     Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	
+	Adaptation by Antoine Lu, 2018 - INRA BIOGER
 -->
 <html>
     <head>
@@ -16,26 +18,16 @@
         <!-- Header -->
             <section id="header">
                 <header>
-                    <span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
+                    <!--<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>-->
                     <h1 id="logo"><a href="#">Colletotrichum destructivum</a></h1>
                 </header>
                 <nav id="nav">
                     <ul>
-                        <li><a href="#one" class="active">Context</a></li>
-                        <li><a href="#two">Genome</a>
-                            <!--<ul class="dropdown-content">
-                                <li><a href="#four1">Genome Browser</a></li>
-                            </ul>-->
-                        </li>
+                        <li><a href="#zero" class="active">Context</a></li>
+                        <li><a href="#two">Genome</a></li>
                         <li><a href="#three">Transcriptome</a></li>
                         <li><a href="#tools">Tools</a></li>
-                        <li class="dropdown"><a href="#rawdata">Raw data</a>
-                            <!--<ul class="dropdown-content">
-                                <li><a href="#three1">PacBio data</a></li>
-                                <li><a href="#three2">RNA-seq data</a></li>
-                            </ul>-->
-                        </li>
-                        <li><a href="#download">Download</a></li>
+                        <li><a href="#rawdata">Raw data</a></li>
                     </ul>
                 </nav>
                 <footer>
@@ -54,16 +46,34 @@
 
                 <!-- Main -->
                     <div id="main">
-
+							<section id="zero">
+								<div class="container">
+									<header class="major">
+										<h2>Colletotrichum destructivum</h2>
+									</header>
+								</div>
+							</section>
+							<section id="headerImages">
+								<div class="container">
+									<div class="mySlides">
+										<div class="content">
+											<img src="images/biotrophic_cdestructivum.png" alt="biotrophic" />
+											<blockquote>Melanized appressoria (A) of C. destructivum penetrating to form biotrophic hyphae (BH) inside living Medicago epidermal cells.</blockquote>
+										</div>
+									</div>
+									<div class="mySlides">
+										<div class="content" class="mySlides">
+											<img src="images/necrotrophic_cdestructivum.png" alt="necrotrophic" />
+											<blockquote>Sporulating structures (acervuli) of C. destructivum on the surface of a dead Medicago leaf consist of a melanized seta (S) surrounded by a mass of conidia (C).</blockquote>
+										</div>
+									</div>
+								</div>
+							</section>
                         <!-- One -->
                             <section id="one">
-                                <!--<div class="image main" data-position="center">
-                                    <img src="images/banner.jpg" alt="" />
-                                </div>-->
                                 <div class="container">
                                     <header class="major">
-                                        <h2>Colletotrichum destructivum</h2>
-                                        <table id="headerTable">
+										<table id="headerTable">
                                           <tr>
                                             <td>Taxonomy ID:</td>
                                             <td><a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34406" target="_blank" rel="noopener noreferrer" >34406</a></td>
@@ -81,8 +91,8 @@
 											<td>Saudi Arabia</td>
                                           </tr>
                                         </table>
-                                    </header>
-                                    <p>The ascomycete and hemibiotrophe fungus, <em>Colletotrichum destructivum</em> causes anthracnose on <em>Fabaceae</em> crops and the model plant <em>Medicago truncatula</em>.</p>
+										<p>The ascomycete and hemibiotrophe fungus, <em>Colletotrichum destructivum</em> causes anthracnose on <em>Fabaceae</em> crops and the model plant <em>Medicago truncatula</em>.</p>
+									</header>
                                 </div>
                             </section>
                         
@@ -191,8 +201,109 @@
                                     <article>
                                         <h4>RNA-seq mapping</h4>
                                         <!--<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>-->
+										<h4>Transcriptome assembly</h4>
                                         <div class="inner">
-                                            <p>.</p>
+                                            <p><em>C. destructivum</em> transcriptome was assembled using two different tools: <a target="_blank" rel="noopener noreferrer" href="http://www.sigenae.org/drap/">DRAP</a>
+											and <a target="_blank" rel="noopener noreferrer" href="https://ccb.jhu.edu/software/stringtie/">StringTie</a>.
+											The first (DRAP) uses a <em>de novo</em> algorithm associated with two short-reads transcriptome assemblers Trinity and Oases. The assembled transcriptome is including less redundant.<br />
+											The second tool used, StringTie, is based on a guided algorithm that uses RNA-seq alignments to predict potential transcripts for a given genome.
+											</p>
+										<!-- Transcriptome table -->
+											<table class="toggleTable">
+											  <tr class="constant">
+												<th rowspan="2">Growth condition</th>
+												<th rowspan="2">Description</th>
+												<th colspan="2">Download</th>
+												<th></th>
+											  </tr>
+											  <tr class="constant">
+												<th>DRAP</th> <th>StringTie</th> <th></th>
+											  </tr>
+											  <tr class="parent">
+												<td>709-PDB</td>
+												<td>Assembled (or predicted) transcripts from undifferentiated mycelium grown <strong><em>in vitro</em></strong> on potato dextrose liquid medium (PDB)</td>
+												<td><a href="#" class="icon fa-download" alt="DRAP_Download"></a></td>
+												<td><a href="#" class="icon fa-download" alt="StringTie_Download"></a></td>
+												<td class="moreLess"><a class="clickable" alt="more/less"></a></td>
+											  </tr>
+											  <tr>
+												<td colspan="5">
+													<h4><u>StringTie:</u></h4>
+													<blockquote>
+														stringtie ../STAR/PDB/709-PDB_outAligned.sortedByCoord.out.bam -l PDB.STRG_ -o /work/colleto/Cdestructivum/RNA-Seq/StringTie/PDB/PDB_rf.gff -m 150 -p 4 --rf
+													</blockquote>
+													<h4><u>DRAP:</u></h4>
+													<blockquote>
+														
+													</blockquote>
+												</td>
+											  </tr>
+											  <tr></tr>
+											  <tr class="parent">
+												<td>709-48H</td>
+												<td>Assembled (or predicted) transcripts from appressoria on the plant surface and <strong>biotrophic</strong> hyphae growing in living plant cells (biotrophic phase)</td>
+												<td><a href="#" class="icon fa-download" alt="DRAP_Download"></a></td>
+												<td><a href="#" class="icon fa-download" alt="StringTie_Download"></a></td>
+												<td class="moreLess"><a class="clickable" alt="more/less"></a></td>
+											  </tr>
+											  <tr>
+												<td colspan="5">
+													<h4><u>StringTie:</u></h4>
+													<blockquote>
+														stringtie ../STAR/709-48h/709-48h_outAligned.sortedByCoord.out.bam -l STRG.48H_ -o /work/colleto/Cdestructivum/RNA-Seq/StringTie/709-48H/48h.gff -m 150 -p 4 --rf
+													</blockquote>
+													<h4><u>DRAP:</u></h4>
+													<blockquote>
+														
+													</blockquote>												
+												</td>
+											  </tr>
+											  <tr></tr>
+											  <tr class="parent">
+												<td>709-72H</td>
+												<td>Assembled (or predicted) transcripts from <strong>necrotrophic</strong> hyphae growing on dead plant cells</td>
+												<td><a href="#" class="icon fa-download" alt="DRAP_Download"></a></td>
+												<td><a href="#" class="icon fa-download" alt="StringTie_Download"></a></td>
+												<td class="moreLess"><a class="clickable" alt="more/less"></a></td>
+											  </tr>
+											  <tr>
+												<td colspan="5">
+													<h4><u>StringTie:</u></h4>
+													<blockquote>
+														stringtie ../STAR/709-72h/709-72h_outAligned.sortedByCoord.out.bam -l STRG.72H__ -o /work/colleto/Cdestructivum/RNA-Seq/StringTie/709-72H/72h.gff -m 150 -p 4 --rf
+													</blockquote>
+													<h4><u>DRAP:</u></h4>
+													<blockquote>
+														
+													</blockquote>
+												</td>
+											  </tr>
+											  <tr></tr>
+											  <tr class="parent">
+												<td>Merged</td>
+												<td>Grouping of all the assembled (or predicted) transcript for each growth condition (<em>in vitro</em>, <em>in planta</em> (biotrophic phase), <em>in planta</em> (necrotrophic phase))</td>
+												<td><a href="#" class="icon fa-download" alt="DRAP_Download"></a></td>
+												<td><a href="#" class="icon fa-download" alt="StringTie_Download"></a></td>
+												<td class="moreLess"><a class="clickable" alt="more/less"></a></td>
+											  </tr>
+											  <tr>
+												<td colspan="5">
+													<h4><u>StringTie:</u></h4>
+													<blockquote>
+														stringtie --merge gtf_list -F 0 -f 0.5 -o /work/colleto/Cdestructivum/RNA-Seq/StringTie/merged/merged_iso50_FPKM0.gff
+													</blockquote>
+													<span>In merged/</span>
+													<blockquote>
+														getfasta -fi ../../../data/fasta/Cdestructivum.fasta -bed merged_iso50_FPKM0.gff -split -name -s | grep -A 1 transcript | sed '/^--$/d' | sed 's/:/_/g' | fold -w 60 > StringTie_allmerged_transcripts.fasta
+													</blockquote>
+													<h4><u>DRAP:</u></h4>
+													<blockquote>
+														
+													</blockquote>
+												</td>
+											  </tr>
+											  <tr></tr>
+											</table>
                                         </div>
                                     </article>
                                 </div>
@@ -257,7 +368,7 @@
                                                   </tr>
                                                   <tr class="parent">
                                                     <td>Metadata</td>
-													<td class="collapsebtn" class="icon fa-plus"></td>
+													<td class="moreLess"><a class="clickable" alt="more/less"></a></td>
                                                   </tr>
                                                   <tr>
 													<td colspan="2">
@@ -284,7 +395,7 @@
 													  <!-- PDB -->
 													  <tr class="parent">
 														<td>709-PDB</td>
-														<td>Undifferentiated mycelium grown in vitro on potato dextrose liquid medium (PDB)</td>
+														<td>Undifferentiated mycelium grown <strong><em>in vitro</em><strong> on potato dextrose liquid medium (PDB)</td>
 														<td><a href="#" class="icon fa-download" alt="Download"></a></td>
 														<td class="moreLess"><a class="clickable" alt="more/less"></a></td>
 													  </tr>
@@ -303,7 +414,7 @@
 													  <!-- 48H -->
 													  <tr class="parent">
 														<td>709-48H</td>
-														<td>Biotrophic phase, with appressoria on the plant surface and biotrophic hyphae growing in living plant cells</td>
+														<td>Biotrophic phase, with appressoria on the plant surface and <strong>biotrophic</strong> hyphae growing in living plant cells</td>
 														<td><a href="#" class="icon fa-download" alt="Download"></a></td>
 														<td class="moreLess"><a class="clickable" alt="more/less"></a></td>
 													  </tr>
@@ -322,7 +433,7 @@
 													  <!-- 72H -->
 													  <tr class="parent">
 														<td>709-72H</td>
-														<td>Necrotrophic phase, with necrotrophic hyphae growing on dead plant cells</td>
+														<td>Necrotrophic phase, with <strong>necrotrophic</strong> hyphae growing on dead plant cells</td>
 														<td><a href="#" class="icon fa-download" alt="Download">
 														</a></td><td class="moreLess"><a class="clickable" alt="more/less"></a></td>
 													  </tr>
@@ -346,17 +457,7 @@
                                 </div>
                             </section>
                     
-                        <!-- Download -->
-                            <section id="download">
-                                <div class="container">
-                                    <h3>Download</h3>
-                                    <p>.</p>
-                                    <div class="features">
-                                        <article>
-                                        </article>
-                                    </div>
-                                </div>
-                            </section>
+                        
                         <!-- Five -->
                         <!--
                             <section id="five">
@@ -711,6 +812,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
             <script src="assets/js/main.js"></script>
             <script src="assets/js/toggleTable.js"></script>
             <script src="assets/js/iframeRefresh.js"></script>
+            <script src="assets/js/carousel.js"></script>
 			
     </body>
 </html>
