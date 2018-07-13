@@ -73,6 +73,9 @@ table {
 	color: #000;
 }
 /* (+) (-) buttons*/
+.toggleTable tr.parent a.clickable {
+	border-bottom-color: transparent;
+}
 
 .toggleTable tr.parent a.clickable:after{
   content: '\02795'; /*(+)*/
@@ -240,21 +243,25 @@ input, select, textarea {
         margin: 0 0 2.25em 0;
         padding: 0.5em 0 0.5em 2em;
     }
-
+	
+	table blockquote, table ul, table ol {
+		text-align: left;
+	}
+	
     code {
         background: #555;
         border-radius: 5px;
         color: #fff;
         font-family: "Source Code Pro", monospace;
-        font-size: 0.9em;
+        font-size: 0.8em;
         margin: 0 0.25em;
         padding: 0.25em 0.65em;
     }
 
     pre {
         font-family: "Source Code Pro", monospace;
-        font-size: 0.9em;
-        margin: 0 0 2.25em 0;
+        font-size: 0.8em;
+        margin: 0 0 0.25em 0;
     }
 
         pre code {
@@ -1838,7 +1845,39 @@ input, select, textarea {
             font-weight: 700;
             margin-top: -0.75em;
         }
-
+	section#one {
+		position: relative;
+		width:100%;
+		border: 0;
+	}
+	section#headerImages {
+		background: #f2f2f2;
+		max-height: 210px;
+		height: 100%;
+		padding-bottom: 0.3em;
+	}
+	section#headerImages .container .content {
+		height:150px;
+		width: 100%;
+		position:relative;
+		clear:both;
+		overflow: hidden;
+	}
+	section#headerImages .container .content  blockquote{
+		font-size:0.7em;
+		line-height: normal;
+	}
+	section#headerImages .content img {
+		float: left;
+		width:100%;
+		max-width:150px;
+		height:100%;
+		max-height:150px;
+		margin-right: 0.8em;
+		border: 1.5px solid #fafafa;
+	}
+	section#headerImages .container .content .mySlides {display:none;}
+	section#one .container .major p {margin-top: -2.5em;}
 /* Form */
 
     form {
@@ -2479,13 +2518,16 @@ input, select, textarea {
 
         table td {
             font-size: 0.8em;
+			text-align: center;
         }
 
         table th {
             color: #777;
             font-size: 0.8em;
             font-weight: 700;
-            text-align: left;
+            text-align: center;
+			background-color: #f2f2f2;
+			padding: 0 0.25em 0 0.25em ;
         }
 
         table thead {
@@ -2857,6 +2899,8 @@ input, select, textarea {
                     #header > nav ul li:first-child {
                         border-top: 0;
                     }
+					
+		
 
 table#headerTable tr {
   display: inline-block;
@@ -2869,7 +2913,7 @@ table#headerTable td  {
 }
 table#headerTable td:nth-child(odd) {
   font-weight: bold;
-   padding: 0 0.5em 0 0;
+  padding: 0 0.5em 0 0;
 }
 
 table#headerTable td:nth-child(even) {
@@ -2902,7 +2946,7 @@ table#headerTable td:nth-child(even) {
             border-top: 0;
         }
 
-/* Footer */
+	/* Footer */
 
     #footer {
         background: #fafafa;
@@ -3224,7 +3268,8 @@ table#headerTable td:nth-child(even) {
                 header.major h2 + p {
                     font-size: 1em;
                 }
-
+			
+			
         /* Features */
 
             .features article .image {
